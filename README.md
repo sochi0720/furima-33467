@@ -14,22 +14,22 @@
 | birth_day          | date   | null: false               |
 
 ### Association
-- has_one :order
+- has_many :order
 - has_many :items
 
 ## items テーブル
 
-| Column          | Type       | Options     |
-| --------------- | ---------- | ----------- |
-| name            | string     | null: false |
-| description     | text       | null: false |
-| category        | string     | null: false |
-| item_state      | string     | null: false |
-| price           | string     | null: false |
-| shipping_cost   | string     | null: false |
-| prefecture_id   | string     | null: false |
-| sipping_day     | string     | null: false |
-| user_id         | string     | null: false |
+| Column           | Type       | Options     |
+| ---------------- | ---------- | ----------- |
+| name             | string     | null: false |
+| description      | text       | null: false |
+| category_id      | string     | null: false |
+| item_state_id    | string     | null: false |
+| price            | string     | null: false |
+| shipping_cost_id | string     | null: false |
+| prefecture_id    | string     | null: false |
+| sipping_day_id   | string     | null: false |
+| user_id          | string     | null: false |
 
 ### Association
 - has_one :order 
@@ -37,15 +37,16 @@
 
 ## orders テーブル
 
-| Column  | Type       | Options                        |
-| --------| ---------- | ------------------------------ |
-| user_id | references | null: false, foreign_key: true |
-| item_id | references | null: false, foreign_key: true |
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+| item   | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
+- has_one :destination
 
 ## destinations テーブル
 
@@ -56,9 +57,9 @@
 | prefecture_id | string     | null: false |
 | city          | string     | null: false |
 | address       | string     | null: false |
-| building_name | string     | null: false |
+| building_name | string     |             |
 | phone_number  | string     | null: false |
 
 ### Association
 
--has_one :order
+- belongs_to :order
