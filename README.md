@@ -29,7 +29,7 @@
 | shipping_cost_id | integer    | null: false                    |
 | prefecture_id    | integer    | null: false                    |
 | sipping_day_id   | integer    | null: false                    |
-| user_id          | references | null: false, foreign_key: true |
+| user             | references | null: false, foreign_key: true |
 
 ### Association
 - has_one :order 
@@ -58,7 +58,7 @@
 | address       | string     | null: false                    |
 | building_name | string     |                                |
 | phone_number  | string     | null: false                    |
-| order_id      | references | null: false, foreign_key: true |
+| order         | references | null: false, foreign_key: true |
 
 ### Association
 
