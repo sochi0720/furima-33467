@@ -19,17 +19,17 @@
 
 ## items テーブル
 
-| Column           | Type       | Options     |
-| ---------------- | ---------- | ----------- |
-| name             | string     | null: false |
-| description      | text       | null: false |
-| category_id      | string     | null: false |
-| item_state_id    | string     | null: false |
-| price            | string     | null: false |
-| shipping_cost_id | string     | null: false |
-| prefecture_id    | string     | null: false |
-| sipping_day_id   | string     | null: false |
-| user_id          | string     | null: false |
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| name             | string     | null: false                    |
+| description      | text       | null: false                    |
+| category_id      | integer    | null: false                    |
+| item_state_id    | integer    | null: false                    |
+| price            | integer    | null: false                    |
+| shipping_cost_id | integer    | null: false                    |
+| prefecture_id    | integer    | null: false                    |
+| sipping_day_id   | integer    | null: false                    |
+| user_id          | references | null: false, foreign_key: true |
 
 ### Association
 - has_one :order 
@@ -50,15 +50,15 @@
 
 ## destinations テーブル
 
-| Column        | Type       | Options     |
-| ------------  | ---------- | ----------- |
-| credit_card   | string     | null: false |
-| post_code     | string     | null: false |
-| prefecture_id | string     | null: false |
-| city          | string     | null: false |
-| address       | string     | null: false |
-| building_name | string     |             |
-| phone_number  | string     | null: false |
+| Column        | Type       | Options                        |
+| ------------  | ---------- | ------------------------------ |
+| post_code     | string     | null: false                    |
+| prefecture_id | integer    | null: false                    |
+| city          | string     | null: false                    |
+| address       | string     | null: false                    |
+| building_name | string     |                                |
+| phone_number  | string     | null: false                    |
+| order_id      | references | null: false, foreign_key: true |
 
 ### Association
 
