@@ -14,10 +14,11 @@ class Item < ApplicationRecord
     validates :price
   end
                                                                                             
-
-  validates :name, presence: true
-  validates :description, presence: true 
-  validates :image, presence: true
+  with_options presence: true do
+    validates :name
+    validates :description 
+    validates :image
+  end
 
   with_options presence: true, numericality: { other_than: 1 } do
     validates :category_id
