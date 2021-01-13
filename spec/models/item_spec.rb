@@ -10,16 +10,6 @@ RSpec.describe Item, type: :model do
       it '必要な情報を適切に入力すれば出品できること' do
         expect(@item).to be_valid
       end
-
-      it '販売価格が300円だと出品できること' do
-        @item.price = 300
-        expect(@item).to be_valid
-      end
-
-      it '販売価格が9999999円だと出品できること' do
-        @item.price = 9_999_999
-        expect(@item).to be_valid
-      end
     end
     context '出品できないとき' do
       it '商品名が空では出品できないこと' do
