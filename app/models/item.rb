@@ -10,13 +10,14 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :shipping_day
 
-  with_options presence: true, format: { with: /\A[0-9]+\z/, message: '半角数字で入力してください' }, numericality: { only_integer: true,greater_than: 299, less_than: 10_000_000 } do
+  with_options presence: true, format: { with: /\A[0-9]+\z/, message: '半角数字で入力してください' },
+               numericality: { only_integer: true, greater_than: 299, less_than: 10_000_000 } do
     validates :price
   end
-                                                                                            
+
   with_options presence: true do
     validates :name
-    validates :description 
+    validates :description
     validates :image
   end
 
@@ -24,7 +25,7 @@ class Item < ApplicationRecord
     validates :category_id
     validates :item_state_id
     validates :shipping_cost_id
-    validates :prefecture_id 
+    validates :prefecture_id
     validates :shipping_day_id
   end
 end

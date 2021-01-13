@@ -93,31 +93,31 @@ RSpec.describe Item, type: :model do
       it 'カテゴリーの情報で1が選択された状態では出品できないこと' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category must be other than 1")
+        expect(@item.errors.full_messages).to include('Category must be other than 1')
       end
 
       it '商品の状態についての情報で1が選択された状態では出品できないこと' do
         @item.item_state_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item state must be other than 1")
+        expect(@item.errors.full_messages).to include('Item state must be other than 1')
       end
 
       it '配送料についての情報で1が選択された状態では出品できないこと' do
         @item.shipping_cost_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping cost must be other than 1")
+        expect(@item.errors.full_messages).to include('Shipping cost must be other than 1')
       end
 
       it '配送元の地域についての情報で1が選択された状態では出品できないこと' do
         @item.prefecture_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
+        expect(@item.errors.full_messages).to include('Prefecture must be other than 1')
       end
 
       it '発送までの日数についての情報で1が選択された状態では出品できないこと' do
         @item.shipping_day_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping day must be other than 1")
+        expect(@item.errors.full_messages).to include('Shipping day must be other than 1')
       end
     end
   end
