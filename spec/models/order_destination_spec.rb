@@ -57,6 +57,12 @@ RSpec.describe OrderDestination, type: :model do
         expect(@order_destination.errors.full_messages).to include("Phone number is invalid. Don't include hyphen(-)")
       end
 
+      it 'phone_numberが12桁以上だと購入できないこと' do
+        @order_destination.phone_number = '090223344556'
+        @order_destination.valid?
+        expect(@order_destination.errors.full_messages).to include("Phone number is invalid. Don't include hyphen(-)")
+      end
+
       it 'tokenが空では購入できないこと' do
         @order_destination.token = nil
         @order_destination.valid?
