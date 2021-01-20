@@ -16,7 +16,7 @@ class User < ApplicationRecord
     validates :first_name_kana
   end
 
-  validates :password, format: { with: /\A[a-zA-Z0-9]+\z/, message: '半角英数字を使用してください' } do
+  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/, message: '半角英数字を使用してください' } do
   end
 
   validates :birth_day, presence: true
